@@ -37,6 +37,7 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -97,10 +98,28 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/deeppurple-amber.css",
               "src/styles.scss"
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "version": 2
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "ngrx-17:build:production",
+              "serveTarget": "ngrx-17:serve:production"
+            },
+            "development": {
+              "buildTarget": "ngrx-17:build:development",
+              "serveTarget": "ngrx-17:serve:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }
