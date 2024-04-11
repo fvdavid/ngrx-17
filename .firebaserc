@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "silvermist-rss": {
+      "hosting": {
+        "ngrx-17": [
+          "ngrx-fire-17"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "silvermist-rss"
+  }
+}

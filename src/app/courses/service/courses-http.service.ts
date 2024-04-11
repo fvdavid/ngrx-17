@@ -8,15 +8,15 @@ import { Observable } from 'rxjs';
 })
 export class CoursesHttpService {
 
-  private baseUrl = "/api";
+  // private baseUrl = "/api";
 
-  constructor(private http: HttpClient) { }
+  // constructor(private http: HttpClient) { }
 
-  findAllCourses(): Observable<Course[]> {
-    return this.http.get<Course[]>(this.baseUrl);
-  }
+  // findAllCourses(): Observable<Course[]> {
+  //   return this.http.get<Course[]>(this.baseUrl);
+  // }
 
-  findCourseById(courseId: number): Observable<Course> {
-    return this.http.get<Course>(`/api/${courseId}`);
-  }
+  // findCourseById(courseId: number): Observable<Course> {
+  //   return this.http.get<Course>(`/api/${courseId}`);
+  // }
 }

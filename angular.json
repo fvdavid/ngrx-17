@@ -68,9 +68,6 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "proxyConfig": "./proxy.json"
-          },
           "configurations": {
             "production": {
               "buildTarget": "ngrx-17:build:production"
@@ -106,6 +103,23 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "version": 2
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "ngrx-17:build:production",
+              "serveTarget": "ngrx-17:serve:production"
+            },
+            "development": {
+              "buildTarget": "ngrx-17:build:development",
+              "serveTarget": "ngrx-17:serve:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }
