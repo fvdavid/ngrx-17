@@ -1,0 +1,10 @@
+{
+    "/api": {
+        "target": "https://json-placeholder.mock.beeceptor.com/posts",
+        "secure": false,
+        "changeOrigin": true,
+        "pathRewrite": {
+            "^/api": ""
+        }
+    }
+}

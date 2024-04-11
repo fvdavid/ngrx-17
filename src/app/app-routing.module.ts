@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
+import { BerandaComponent } from './beranda/beranda.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: BerandaComponent
   },
   {
     path: '',
-    loadChildren: () => import('./bitcoin/bitcoin.module').then(b => b.BitcoinModule)
+    loadChildren: () => import('./courses/courses.module').then(c => c.CoursesModule)
   }
 ];
 
