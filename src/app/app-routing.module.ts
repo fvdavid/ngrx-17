@@ -8,7 +8,7 @@ const routes: Routes = [
     component: BerandaComponent
   },
   {
-    path: '',
+    path: 'courses',
     loadChildren: () => import('./courses/courses.module').then(c => c.CoursesModule)
   }
 ];

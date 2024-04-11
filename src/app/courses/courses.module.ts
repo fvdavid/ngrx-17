@@ -19,11 +19,20 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { EditCourseDialogComponent } from './edit-course-dialog/edit-course-dialog.component';
+
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { environment } from '../../environments/environment';
+import { CoursesService } from './service/courses.service';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 @NgModule({
   declarations: [
     HomeComponent,
-    CourseComponent
+    CourseComponent,
+    EditCourseDialogComponent
   ],
   imports: [
     CommonModule,
@@ -41,7 +50,20 @@ import { MatIconModule } from '@angular/material/icon';
     MatDialogModule,
     MatSelectModule,
     MatDatepickerModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+
+    // provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    // provideFirestore(() => getFirestore())
+
+    
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule
+  ],
+  exports: [
+    EditCourseDialogComponent
+  ],
+  providers: [
+    CoursesService
   ]
 })
 export class CoursesModule { }
