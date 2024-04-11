@@ -14,19 +14,19 @@ import { Observable } from 'rxjs';
 })
 export class HomeComponent {
 
-  // courses?: Course[];
-
-  loading$: Observable<boolean>;
-
-  allCourse$: Observable<Course[]>;
-  promoTotal$: Observable<number>;
-  beginnerCourses$: Observable<Course[]>;
-  advancedCourses$: Observable<Course[]>;
-
+  loading$!: Observable<boolean>;
+  allCourse$!: Observable<Course[]>;
+  promoTotal$!: Observable<number>;
+  beginnerCourses$!: Observable<Course[]>;
+  advancedCourses$!: Observable<Course[]>;
 
   constructor(private dialog: MatDialog,
     private coursesService: CoursesService
   ) {
+    this.reload();
+  }
+
+  reload() {
     this.allCourse$ = this.coursesService.getAll().valueChanges();
 
     this.loading$ = this.allCourse$.pipe(map(courses => !!courses));

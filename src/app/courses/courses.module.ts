@@ -27,12 +27,14 @@ import { environment } from '../../environments/environment';
 import { CoursesService } from './service/courses.service';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { CoursesCardListComponent } from './courses-card-list/courses-card-list.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     CourseComponent,
-    EditCourseDialogComponent
+    EditCourseDialogComponent,
+    CoursesCardListComponent
   ],
   imports: [
     CommonModule,
