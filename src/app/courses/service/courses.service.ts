@@ -21,8 +21,10 @@ export class CoursesService {
     return this.coursesRef.add({ ...tutorial });
   }
 
-  update(id: string, data: any): Promise<void> {
-    return this.coursesRef.doc(id).update(data);
+  // update(id: string, data: any): Promise<void>
+  update(id: string | number, data: Partial<Course>) {
+    const fvId = id.toString();
+    return this.coursesRef.doc(fvId).update(data);
   }
 
   delete(id: string): Promise<void> {
