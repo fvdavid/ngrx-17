@@ -6,6 +6,9 @@ import { CoursesService } from '../service/courses.service';
 import { map } from 'rxjs/operators';
 import { Course, compareCourses } from '../model/course';
 import { Observable } from 'rxjs';
+import { Store, select } from '@ngrx/store';
+import { AppState } from '../../reducers';
+import { selectAdvancedCourses, selectBeginnerCourses, selectPromoTotal } from '../courses.selectors';
 
 @Component({
   selector: 'app-home',
@@ -21,27 +24,34 @@ export class HomeComponent {
   advancedCourses$!: Observable<Course[]>;
 
   constructor(private dialog: MatDialog,
+    private store: Store<AppState>,
     private coursesService: CoursesService
   ) {
     this.reload();
   }
 
   reload() {
+
+    this.beginnerCourses$ = this.store.pipe(select(selectBeginnerCourses));
+    this.advancedCourses$ = this.store.pipe(select(selectAdvancedCourses));
+    this.promoTotal$ = this.store.pipe(select(selectPromoTotal));
+
     this.allCourse$ = this.coursesService.getAll().valueChanges();
+    this.allCourse$.subscribe(c => console.log('allCourse$ ==> ', c));
 
     this.loading$ = this.allCourse$.pipe(map(courses => !!courses));
 
-    this.beginnerCourses$ = this.allCourse$.pipe(
-      map(f => f.filter(v => v.category == 'BEGINNER'))
-    );
+    // this.beginnerCourses$ = this.allCourse$.pipe(
+    //   map(f => f.filter(v => v.category == 'BEGINNER'))
+    // );
 
-    this.advancedCourses$ = this.allCourse$.pipe(
-      map(f => f.filter(v => v.category == 'ADVANCED'))
-    );
+    // this.advancedCourses$ = this.allCourse$.pipe(
+    //   map(f => f.filter(v => v.category == 'ADVANCED'))
+    // );
 
-    this.promoTotal$ = this.allCourse$.pipe(
-      map(c => c.filter(c => c.promo).length)
-    );
+    // this.promoTotal$ = this.allCourse$.pipe(
+    //   map(c => c.filter(c => c.promo).length)
+    // );
   }
 
   onAddCourse() {

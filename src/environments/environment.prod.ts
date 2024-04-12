@@ -6,5 +6,6 @@ export const environment = {
         "apiKey": "AIzaSyCpwon6_DHF5XQP_G0t_sdHoQr2ZR6VXuE",
         "authDomain": "silvermist-rss.firebaseapp.com",
         "messagingSenderId": "55504318878"
-    }
+    },
+    production: true
 }

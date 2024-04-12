@@ -21,13 +21,16 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { EditCourseDialogComponent } from './edit-course-dialog/edit-course-dialog.component';
 
-import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
-import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { environment } from '../../environments/environment';
 import { CoursesService } from './service/courses.service';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { CoursesCardListComponent } from './courses-card-list/courses-card-list.component';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+import { coursesReducer } from './reducers/course.reducers';
+import { CoursesEffect } from './courses.effects';
+// import { CoursesResolver } from './courses.resolver';
 
 @NgModule({
   declarations: [
@@ -54,18 +57,18 @@ import { CoursesCardListComponent } from './courses-card-list/courses-card-list.
     MatDatepickerModule,
     ReactiveFormsModule,
 
-    // provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
-    // provideFirestore(() => getFirestore())
-
-    
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+
+    EffectsModule.forFeature([CoursesEffect]),
+    StoreModule.forFeature("courses", coursesReducer)
   ],
   exports: [
     EditCourseDialogComponent
   ],
   providers: [
-    CoursesService
+    CoursesService,
+    // CoursesResolver
   ]
 })
 export class CoursesModule { }

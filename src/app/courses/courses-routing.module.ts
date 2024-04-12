@@ -2,12 +2,15 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CourseComponent } from './course/course.component';
 import { HomeComponent } from './home/home.component';
+import { coursesResolver } from './courses.resolver';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
-
+    component: HomeComponent,
+    resolve: {
+      courses: coursesResolver
+    }
   },
   {
     path: ':courseUrl',
