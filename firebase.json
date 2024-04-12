@@ -1,0 +1,9 @@
+{
+  "hosting": [
+    {
+      "target": "ngrx-17",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
+}
