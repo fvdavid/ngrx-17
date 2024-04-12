@@ -37,7 +37,7 @@ export class HomeComponent {
     this.promoTotal$ = this.store.pipe(select(selectPromoTotal));
 
     this.allCourse$ = this.coursesService.getAll().valueChanges();
-    this.allCourse$.subscribe(c => console.log('allCourse$ ==> ', c));
+    // this.allCourse$.subscribe(c => console.log('allCourse$ ==> ', c));
 
     this.loading$ = this.allCourse$.pipe(map(courses => !!courses));
 

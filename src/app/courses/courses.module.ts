@@ -6,7 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { CourseComponent } from './course/course.component';
 
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatDialogActions, MatDialogClose, MatDialogContent, MatDialogModule, MatDialogTitle } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -30,6 +30,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { coursesReducer } from './reducers/course.reducers';
 import { CoursesEffect } from './courses.effects';
+import { MatFormFieldModule } from '@angular/material/form-field';
 // import { CoursesResolver } from './courses.resolver';
 
 @NgModule({
@@ -56,6 +57,12 @@ import { CoursesEffect } from './courses.effects';
     MatSelectModule,
     MatDatepickerModule,
     ReactiveFormsModule,
+
+    // MatFormFieldModule,
+    // MatDialogTitle,
+    // MatDialogContent,
+    // MatDialogActions,
+    // MatDialogClose,
 
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,

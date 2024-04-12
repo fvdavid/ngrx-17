@@ -12,7 +12,7 @@ import { EditCourseDialogComponent } from '../edit-course-dialog/edit-course-dia
 export class CoursesCardListComponent {
 
   @Input()
-  courses!: Course[];
+  courses: Course[] = [];
 
   @Output()
   courseChanged = new EventEmitter();
@@ -22,7 +22,6 @@ export class CoursesCardListComponent {
   }
 
   editCourse(course: Course) {
-
     const dialogConfig = defaultDialogConfig();
 
     dialogConfig.data = {
@@ -38,8 +37,7 @@ export class CoursesCardListComponent {
   }
 
   onDeleteCourse(course: Course) {
-
-
+    console.log('course delete ==> ', course);
   }
 
 }

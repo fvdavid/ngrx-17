@@ -1,5 +1,5 @@
 export interface Course {
-    id?: string;
+    id: string;
     seqNo: number;
     url: string;
     iconUrl: string;
